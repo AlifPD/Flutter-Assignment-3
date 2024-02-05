@@ -107,6 +107,5 @@ class UsersCardWidget extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

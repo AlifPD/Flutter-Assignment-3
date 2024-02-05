@@ -1,3 +1,5 @@
+import 'package:assignment_3/screens/albums_view_screen.dart';
+import 'package:assignment_3/screens/photos_view_screen.dart';
 import 'package:assignment_3/screens/posts_view_screen.dart';
 import 'package:assignment_3/screens/users_view_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +22,7 @@ class _MainAppState extends State<MainApp> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = [
     PostsViewScreen(),
-    Text(
-      "Albums",
-      style: optionStyle,
-    ),
+    AlbumsViewScreen(),
     UsersViewScreen(),
   ];
 
@@ -36,6 +35,9 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        PhotosViewScreen.routeName: (context) => const PhotosViewScreen(),
+      },
       title: "Assignment 3",
       home: Scaffold(
         body: _widgetOptions.elementAt(_selectedIndex),

@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:assignment_3/models/albums_model.dart';
+import 'package:assignment_3/models/photos_model.dart';
 import 'package:assignment_3/models/posts_model.dart';
 import 'package:assignment_3/models/users_model.dart';
 import 'package:http/http.dart' as http;
@@ -66,6 +68,56 @@ Future<List<UsersModel>?> getUsers() async {
     });
 
     return listUsers;
+  } catch (err) {
+    throw Exception("Something is wrong");
+  }
+}
+
+Future<List<AlbumsModel>?> getAlbums() async {
+  try {
+    List<AlbumsModel> listAlbums = [];
+
+    final res = await http.get(
+      Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+    );
+    final decodedRes = json.decode(res.body);
+
+    decodedRes.forEach((val) {
+      final currentData = AlbumsModel(
+        userId: val['userId'],
+        id: val['id'],
+        title: val['title'],
+      );
+      listAlbums.add(currentData);
+    });
+
+    return listAlbums;
+  } catch (err) {
+    throw Exception("Something is wrong");
+  }
+}
+
+Future<List<PhotosModel>?> getPhotos(albumId) async {
+  try {
+    List<PhotosModel> listPhotos = [];
+
+    final res = await http.get(
+      Uri.parse('https://jsonplaceholder.typicode.com/albums/$albumId/photos'),
+    );
+    final decodedRes = json.decode(res.body);
+
+    decodedRes.forEach((val) {
+      final currentData = PhotosModel(
+        albumId: val['albumId'],
+        id: val['id'],
+        title: val['title'],
+        url: val['url'],
+        thumbnailUrl: val['thumbnailUrl'],
+      );
+      listPhotos.add(currentData);
+    });
+
+    return listPhotos;
   } catch (err) {
     throw Exception("Something is wrong");
   }
