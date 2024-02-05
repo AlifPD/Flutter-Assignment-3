@@ -18,7 +18,9 @@ class _AlbumsViewScreenState extends State<AlbumsViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Albums"),
+      ),
       body: FutureBuilder(
         future: api.getAlbums(),
         builder: (context, snapshot) {

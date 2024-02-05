@@ -33,8 +33,11 @@ class UsersCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Text(
-                "$id",
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 80, 30, 80),
+                child: Text(
+                  "$id",
+                ),
               ),
             ),
             Expanded(

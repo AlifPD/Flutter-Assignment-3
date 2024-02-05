@@ -21,7 +21,9 @@ class _PhotosViewScreenState extends State<PhotosViewScreen> {
     final args = ModalRoute.of(context)!.settings.arguments as int;
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Photos"),
+      ),
       body: FutureBuilder(
         future: api.getPhotos(args),
         builder: (context, snapshot) {

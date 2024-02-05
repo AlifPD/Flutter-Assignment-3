@@ -16,7 +16,9 @@ class _PostsViewScreenState extends State<PostsViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Posts"),
+      ),
       body: FutureBuilder(
         future: api.getPosts(),
         builder: (context, snapshot) {

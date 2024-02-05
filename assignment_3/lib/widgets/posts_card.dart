@@ -24,8 +24,13 @@ class PostsCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Text(
-                "$id",
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 80, 30, 80),
+                  child: Text(
+                    "$id",
+                  ),
+                ),
               ),
             ),
             Expanded(
@@ -35,16 +40,20 @@ class PostsCardWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                    Center(
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                     const Padding(padding: EdgeInsets.symmetric(vertical: 2)),
                     Text(
                       body,
+                      textAlign: TextAlign.justify,
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 15,

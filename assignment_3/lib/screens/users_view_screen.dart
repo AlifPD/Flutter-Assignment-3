@@ -18,7 +18,9 @@ class _UsersViewWidgetState extends State<UsersViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Users"),
+      ),
       body: FutureBuilder(
         future: api.getUsers(),
         builder: (context, snapshot) {
